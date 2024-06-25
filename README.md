@@ -10,6 +10,9 @@ in what order and through which registers, plus what is the syscall number for e
 
 For safe exit, syscall to exit must also be called in case execve fails.
 
+The assembly code is in shellAssem.c (with comments), to get the byte representation I opened ./shellAssem in gdb and just did `x/bx main+8`...
+or `x/60bx main+8`
+
 # INSTRUCTIONS FOR RUNNING ./e2
 
 Unfortunately, ./e2 cannot be run directly. The problem is that the shellcode (array of chars) is stored in the chunk of memory that is not executable, so what I did was run ./e2 in gdb and as soon as ret was called from main it redirected to shellcode but before that was executed I executed the following commands
