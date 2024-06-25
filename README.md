@@ -5,7 +5,7 @@
 
 I opened ./shell in gdb, shell.c was compiled using -static flag
 so i had excess to __execve function's assembly code in gdb
-from the code it could be what arguments the execve function takes and
+from the code it could be deduced what arguments the execve function takes and
 in what order and through which registers, plus what is the syscall number for execve.
 
 For safe exit, syscall to exit must also be called in case execve fails.
