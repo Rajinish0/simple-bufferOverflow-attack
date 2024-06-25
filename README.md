@@ -1,4 +1,4 @@
-All files must be compiled using -fno-stack-protector flag
+# All files must be compiled using -fno-stack-protector flag
 
 
 # INSTRUCTIONS FOR GETTING THE SHELLCODE in e2.c
