@@ -17,7 +17,7 @@ or `x/60bx main+8`
 
 Unfortunately, ./e2 cannot be run directly. The problem is that the shellcode (array of chars) is stored in the chunk of memory that is not executable, so what I did was run ./e2 in gdb and as soon as ret was called from main it redirected to shellcode but before that was executed I executed the following commands
 
-`info proc mappings` - to see where exactly the shellcode lies, and whatit's permissions are. There was no 'x' property.
+`info proc mappings` - to see where exactly the shellcode lies, and what it's permissions are. There was no 'x' property.
 
 The following command then must be run in gdb to give it that property
 
