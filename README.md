@@ -18,7 +18,7 @@ Unfortunately, ./e2 cannot be run directly. The problem is that the shellcode (a
 
 The following command then must be run in gdb to give it that property
 
-call (int)mprotect(MEMORY_ADDR, SIZE_OF_MEMORY, 1 | 2 | 4)
+`call (int)mprotect(MEMORY_ADDR, SIZE_OF_MEMORY, 1 | 2 | 4)`
 
 (1, 2, 4) are READ, WRITE, EXECUTE flags 
 SIZE_OF_MEMORY for my device was 0x1000 or 4096.
