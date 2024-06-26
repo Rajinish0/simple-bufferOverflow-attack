@@ -31,25 +31,22 @@ so that the command x=1 is never exectued.
 
 But how??
 
-word size is 4 bytes
-buffer1 is therefore stored as 2 words
-so 8 bytes, frame buffer is 4 bytes
-so 12 bytes of jump from buffer1 is required
-to reach [return-rip]
+Had to debug in gdb
+i m not sure why but the stack looks like this
+[buffer1 5 bytes] [int * ret 8 bytes] [stored-rbp] [stored-rip]
+so from buffer1 i have to jump 5 + 8 + 8 bytes to get to rip
+
+x=1 instruction was 7 bytes on assembly, so I just skip to the
+next one
 */
 
 void function(int a, int b, int c){
 	char buffer1[5];
 	char buffer2[10];
-
 	int *ret;
-	/*
-	ret = buffer1 + 16;
-	(*ret) += 16;
-	*/
 
-	ret = buffer1 + 12;
-	(*ret) += 8;
+	ret = (int*)(buffer1 + 5 + 8 + 8);
+	(*ret) += 7;
 }
 
 void main(){
