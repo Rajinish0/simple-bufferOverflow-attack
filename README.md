@@ -4,7 +4,7 @@
 # INSTRUCTIONS FOR GETTING THE SHELLCODE in e2.c
 
 I opened ./shell in gdb, shell.c was compiled using -static flag
-so i had excess to __execve function's assembly code in gdb
+so i had access to __execve function's assembly code in gdb
 from the code it could be deduced what arguments the execve function takes and
 in what order and through which registers, plus what is the syscall number for execve.
 
