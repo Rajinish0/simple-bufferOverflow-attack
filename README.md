@@ -31,4 +31,9 @@ Also, 'si' should be used instead of 'ni' while executing the shellcode in gdb.
 
 To check if call to mprotect was correct do 'info proc mappings' again to see the properties of that memory chunk, and then continue executing the code using 'si'.
 
+# INSTRUCTIONS FOR compiling ./e4.c and running ./e4
+The code in ./e4.c stores the assembly code directly on the stack, so either the above steps can be followed to make the stack memory executatable or ./e4.c can be compiled like this:
 
+`gcc -o e4 -ggdb -static e4.c -fno-stack-protector -z execstack` where `-z execstack` tells the compiler to make the stack memory executable
+
+running `./e4` then launches the shell

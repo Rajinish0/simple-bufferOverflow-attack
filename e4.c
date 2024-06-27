@@ -16,7 +16,7 @@ int main(){
 
 	ret = (long*)((int*)&shellcode + 16) + 1;
 	/*
-	just another way of doing the same thing but this time shellcode is on the stack, so mprotect would need to be used in gdb to make that chunk of memory executable
+	just another way of doing the same thing but this time shellcode is on the stack, so mprotect would need to be used in gdb to make that chunk of memory executable or compile with -z execstack
 	*/
 	(*ret) = (long)shellcode; /*
 	we need to override the address of rip to the adress of the first charac in the shellcode, since sizeof(char*) is 8 we can convert it to long to override the rip; the value on the machine is the same, it's just so that the compiler doesn't complain that we are assigning char* to long
