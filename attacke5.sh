@@ -6,6 +6,11 @@ gdb -ex 'run $(cat payload)' ./e5
 ##the last 8 bytes above (small endian) are the address of one of the no-ops on the stack and they ovverride the rip
 ## that needs to be looked up using gdb
 
+# SO the machine is allocating 512 bytes for the buffer
+# there are therefore 462 \x90 (no ops), 50 bytes of shellcode
+# 8 bytes of \x10 (random for overriding rbp) and finally 8 bytes
+# for overriding rip
+
 
 ## THIS ONLY WORKS within gdb
 ## so in gdb exeecute
